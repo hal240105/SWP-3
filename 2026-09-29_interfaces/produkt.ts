@@ -34,9 +34,9 @@ export class Produkt implements Comparable<Produkt>, Versendbar {
     return this.preisCent - other.preisCent;
   }
 
-  // TODO HÜ: Vertrag 2 — 400 Cent Grundgebühr + 200 Cent je kg.
+  // Vertrag 2 — 400 Cent Grundgebühr + 200 Cent je kg.
   versandkosten(): number {
-    return 0;
+    return 400 + 200 * this.gewichtKg;
   }
 
   toString(): string {
