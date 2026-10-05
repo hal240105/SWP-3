@@ -47,8 +47,11 @@ export class Produkt implements Comparable<Produkt>, Versendbar {
 }
 
 // Structural typing: Diese Funktion verlangt nur die FORM von Versendbar.
-// TODO HÜ (schriftlich, als Kommentar hier): Warum kompiliert der Aufruf
-// akzeptiereVersendbar({ versandkosten: () => 0 }) ohne implements und ohne class?
+// Warum kompiliert akzeptiereVersendbar({ versandkosten: () => 0 }) ohne
+// implements und ohne class? Weil TypeScript strukturell (duck typing) prüft:
+// Wer eine Methode versandkosten(): number hat, IST ein Versendbar — egal ob
+// per class + implements oder als Objekt-Literal. implements ist nur Doku/
+// Absicherung für die Klasse, keine Voraussetzung für den Aufrufer.
 export function akzeptiereVersendbar(v: Versendbar): number {
   return v.versandkosten();
 }
