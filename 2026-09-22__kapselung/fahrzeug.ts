@@ -18,14 +18,14 @@ export class Fahrzeug {
     this._geschwindigkeit = 0;
   }
 
-  // TODO HÜ: getter für kmStand und geschwindigkeit (lesen ja, schreiben nie).
-  // Muss zuerst ersetzt werden, damit die Tests kompilieren und echte Werte sehen.
+  // Getter für kmStand und geschwindigkeit (lesen ja, schreiben nie).
+  // Kein Setter: kmStand ist readonly-artig geschützt, nur fahre() erhöht ihn.
   get kmStand(): number {
-    return 0;
+    return this._kmStand;
   }
 
   get geschwindigkeit(): number {
-    return 0;
+    return this._geschwindigkeit;
   }
 
   // TODO HÜ: wirft, wenn v < 0 oder v > maxGeschwindigkeit.
